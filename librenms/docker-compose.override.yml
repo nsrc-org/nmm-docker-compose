@@ -1,4 +1,19 @@
 version: '3.5'
+services:
+  librenms:
+    labels:
+      traefik.enable: true
+      traefik.http.services.librenms.loadbalancer.server.port: 8000
+      traefik.http.routers.librenms.entrypoints: http
+      #traefik.http.routers.librenms.rule: "Host(`librenms.example.com`)"
+      traefik.http.routers.librenms.rule: "HostRegexp(`${COMPOSE_PROJECT_NAME}{trailer:[-.].*}`)"
+    # The frontend must sit on both the traefik network and the application network
+    networks:
+      traefik:
+      default:
 networks:
   default:
+    # Optional: for SNMP over IPv6 (if available)
     enable_ipv6: true
+  traefik:
+    name: traefik_proxy
