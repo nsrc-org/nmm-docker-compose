@@ -20,3 +20,7 @@ in this directory.
 
 See also [librenms docker
 installation instructions](https://docs.librenms.org/Installation/Docker/).
+
+Changes:
+* `librenms.env`: set `REAL_IP_FROM`, `LIBRENMS_SNMP_COMMUNITY`
+* `docker-compose.override.yml`: enable IPv6
