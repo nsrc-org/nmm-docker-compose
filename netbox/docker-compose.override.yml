@@ -5,7 +5,6 @@ services:
     labels:
       traefik.enable: true
       traefik.http.services.netbox.loadbalancer.server.port: 8080
-      traefik.http.routers.netbox.entrypoints: http
       #traefik.http.routers.netbox.rule: "Host(`netbox.example.com`)"
       traefik.http.routers.netbox.rule: "HostRegexp(`${COMPOSE_PROJECT_NAME}{trailer:[-.].*}`)"
     # The frontend must sit on both the traefik network and the application network

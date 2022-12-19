@@ -7,6 +7,13 @@ providers:
     # https://community.traefik.io/t/docker-provider-how-does-traefik-choose-which-service-ip-address-to-proxy-to-when-container-is-on-multiple-networks/16852
     network: traefik_proxy
 
+entryPoints:
+  http:
+    address: ":80"
+    forwardedHeaders:
+      trustedIPs:
+        - "100.64.0.1/32"
+
 # API and dashboard configuration
 api:
   insecure: true

@@ -8,7 +8,6 @@ services:
     labels:
       traefik.enable: true
       traefik.http.routers.whoami.rule: "Method(`GET`)"
-      traefik.http.routers.whoami.entrypoints: http
       # Lowest possible priority: fallback route
       traefik.http.routers.whoami.priority: 1
     networks:
