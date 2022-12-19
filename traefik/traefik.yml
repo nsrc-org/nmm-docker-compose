@@ -1,0 +1,9 @@
+# Docker backend configuration
+providers:
+  docker:
+    exposedByDefault: false
+    network: traefik_proxy
+
+# API and dashboard configuration
+api:
+  insecure: true
