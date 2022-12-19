@@ -1,0 +1,31 @@
+version: '3.4'
+services:
+  netbox:
+    restart: always
+    labels:
+      traefik.enable: true
+      traefik.http.services.netbox.loadbalancer.server.port: 8080
+      traefik.http.routers.netbox.entrypoints: http
+      #traefik.http.routers.netbox.rule: "Host(`netbox.example.com`)"
+      traefik.http.routers.netbox.rule: "HostRegexp(`${COMPOSE_PROJECT_NAME}{trailer:[-.].*}`)"
+    # The frontend must sit on both the traefik network and the application network
+    networks:
+      traefik:
+        priority: 100
+      default:
+  netbox-worker:
+    restart: always
+  netbox-housekeeping:
+    restart: always
+  postgres:
+    restart: always
+  redis:
+    restart: always
+  redis-cache:
+    restart: always
+
+networks:
+  default:
+    #enable_ipv6: true
+  traefik:
+    name: traefik_proxy
