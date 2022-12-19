@@ -1,0 +1,17 @@
+version: '3.4'
+services:
+  registry:
+    image: registry:2
+    container_name: registry
+    restart: always
+    ports:
+      - 5000:5000
+    environment:
+      # Configure as pull-through cache to docker hub
+      REGISTRY_PROXY_REMOTEURL: "https://registry-1.docker.io"
+    volumes:
+      - registry-data:/var/lib/registry
+
+volumes:
+  registry-data:
+    driver: local
