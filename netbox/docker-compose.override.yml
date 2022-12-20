@@ -2,6 +2,11 @@ version: '3.4'
 services:
   netbox:
     restart: always
+    healthcheck:
+      start_period: 180s
+      timeout: 3s
+      interval: 15s
+      test: "curl -f http://localhost:8080/api/ || exit 1"
     labels:
       traefik.enable: true
       traefik.http.services.netbox.loadbalancer.server.port: 8080
