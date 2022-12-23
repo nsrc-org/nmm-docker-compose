@@ -3,7 +3,7 @@ services:
   netbox:
     restart: always
     healthcheck:
-      start_period: 180s
+      start_period: 300s
       timeout: 3s
       interval: 15s
       test: "curl -f http://localhost:8080/api/ || exit 1"
