@@ -1,6 +1,10 @@
 version: '3.4'
 services:
   netbox:
+    build:
+      context: .
+      dockerfile: Dockerfile-Plugins
+    image: netbox:latest-plugins
     restart: always
     healthcheck:
       start_period: 300s
@@ -18,8 +22,16 @@ services:
         priority: 100
       default:
   netbox-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile-Plugins
+    image: netbox:latest-plugins
     restart: always
   netbox-housekeeping:
+    build:
+      context: .
+      dockerfile: Dockerfile-Plugins
+    image: netbox:latest-plugins
     restart: always
   postgres:
     restart: always

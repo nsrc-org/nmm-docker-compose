@@ -1,0 +1,5 @@
+# Waiting on new release (after 0.5.0) which exports custom fields for SNMP:
+# https://github.com/FlxPeters/netbox-plugin-prometheus-sd/issues/34
+git+https://github.com/FlxPeters/netbox-plugin-prometheus-sd@main
+
+netbox-topology-views
