@@ -17,8 +17,8 @@ It adds netbox-plugin-prometheus-sd and netbox-topology-views as described in
 You will need to start using:
 
 ```
-docker-compose build --no-cache
-docker-compose up -d
+docker compose build --no-cache
+docker compose up -d
 ```
 
 ## Source and references
