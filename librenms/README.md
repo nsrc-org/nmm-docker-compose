@@ -12,6 +12,15 @@ docker compose up -d
 There is no default admin account; you will be prompted to create one the
 first time you connect to the web interface.
 
+To check status:
+
+```
+docker compose exec --user librenms librenms php validate.php
+```
+
+To change the timezone, change the `TZ` variable in the (hidden) `.env`
+file.
+
 ## Source and references
 
 Imported from [librenms/docker](https://github.com/librenms/docker) repo,
