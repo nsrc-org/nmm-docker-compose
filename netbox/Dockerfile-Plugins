@@ -11,4 +11,4 @@ RUN /opt/netbox/venv/bin/pip install --no-warn-script-location -r /plugin_requir
 
 # These lines are only required if your plugin has its own static files.
 COPY configuration/configuration.py /etc/netbox/config/configuration.py
-RUN SECRET_KEY="dummy" /opt/netbox/venv/bin/python /opt/netbox/netbox/manage.py collectstatic --no-input
+RUN SECRET_KEY="dummydummydummydummydummydummydummydummydummydummy" /opt/netbox/venv/bin/python /opt/netbox/netbox/manage.py collectstatic --no-input
